@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suggi Cost Calculator</title>
+    <link rel="icon" type="image/x-icon" href="data:image/jpeg;base64,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">
+    <style>
+        body{
+            background-color: #dcdcdc;
+        }
+        .form-container {
+            max-width: 600px;
+            background-color: whitesmoke;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #dddddd;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: rgb(8, 132, 63);
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 40px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            width: 200px;
+            margin-right: 20px;
+            text-align: right;
+            font-weight: bold;
+        }
+        .form-group input[type="number"],
+        .form-group input[type="text"],
+        .form-group input[type="tel"] {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            background-color: rgb(8, 132, 63);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: rgb(8, 132, 63);
+        }
+        .extra-offer-section {
+            margin-top: 20px;
+        }
+        .top_margin {
+            margin-top: 20px;
+        }
+        .center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .print{
+            width: 300px;
+            margin: 0 15px;
+        }
+        @media (max-width: 600px) {
+            .form-container{
+                width: 80%;
+            }
+            .form-group label {
+                font-size: 14px;
+            }
+            .form-group input[type="number"],
+            .form-group input[type="text"],
+            .form-group input[type="tel"] {
+                font-size: 14px;
+            }
+            button {
+                font-size: 14px;
+                padding: 8px 8px;
+                height: 40px;
+            }
+            .radio-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .radiobutton{
+                display: flex;
+            }
+            .radio-items {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Suggi Cost Calculator</h1>
+        <form id="costForm">
+            <div class="form-group">
+                <label for="appCost">Application Cost:</label>
+                <input type="number" id="appCost" name="appCost" placeholder="Application Cost" required oninput="calculateFields()">
+            </div>
+            <div class="form-group">
+                <label for="gstRate">GST Rate (%):</label>
+                <input type="number" id="gstRate" name="gstRate" placeholder="GST Rate" required oninput="calculateFields()">
+            </div>
+            <div class="form-group">
+                <label for="gstAmount">GST Amount:</label>
+                <input type="text" id="gstAmount" placeholder="GST Amount" readonly>
+            </div>
+            <div class="form-group">
+                <label for="withoutGst">Cost Without GST:</label>
+                <input type="text" id="withoutGst" placeholder="Cost without GST" readonly>
+            </div>
+            <div class="form-group">
+                <label for="openingOffer">Opening Offer:</label>
+                <input type="number" id="openingOffer" name="openingOffer" placeholder="Opening Offer" required oninput="calculateFields()">
+            </div>
+            <div class="form-group">
+                <label for="total">Total Cost:</label>
+                <input type="text" id="total" placeholder="Total Cost" readonly>
+            </div>
+            <div class="form-group extra-offer-section">
+                <label>Extra Offer:</label>
+                <div class="radiobutton">
+                    <div class="radio_items">
+                    <input type="radio" id="extraOfferFlat" name="extraOfferType" value="flat" onclick="toggleExtraOfferFields(true)">
+                    <label for="extraOfferFlat">Flat Amount</label>
+                    </div>
+                    <div class="radio_items">
+                    <input type="radio" id="extraOfferPercentage" name="extraOfferType" value="percentage" onclick="toggleExtraOfferFields(true)">
+                    <label for="extraOfferPercentage">Percentage</label>
+                    </div>
+                </div>
+            </div>
+            <div id="extraOfferFields" class="hidden">
+                <div class="form-group">
+                    <label for="extraOfferAmount">Extra Offer Value:</label>
+                    <input type="number" id="extraOfferAmount" name="extraOfferAmount" placeholder="Extra Offer Value" oninput="calculateFields()">
+                </div>
+                <div class="form-group">
+                    <label for="calculatedExtraOffer">Calculated Extra Offer:</label>
+                    <input type="text" id="calculatedExtraOffer" placeholder="Extra Offer Value" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="totalDiscount">Total Discount:</label>
+                    <input type="text" id="totalDiscount" placeholder="Total Discount" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="grandTotal">Final Grand Total:</label>
+                    <input type="text" id="grandTotal" placeholder="Grand Total" readonly>
+                </div>
+            </div>
+            <button type="button" onclick="showPrintOptions()">Save</button>
+            <div id="printOptions" class="hidden top_margin">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="number" id="phone" placeholder="Phone Number" oninput="validatePhone()">
+                </div>
+                <div class="form-group">
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" placeholder="Location">
+                </div>
+                <div class="form-group">
+                    <label for="gstno">GST No:</label>
+                    <input type="text" id="gstno" placeholder="GSTIN Number" oninput="extractPAN()">
+                </div>
+                <div class="form-group">
+                    <label for="panno">PAN No:</label>
+                    <input type="text" id="panno" placeholder="PAN Number" readonly>
+                </div>
+                <div class="center">
+                <button class="print" type="button" onclick="printPDF()">Download PDF</button>
+                <button class="print" type="button" onclick="printExcel()">Download Excel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.13/jspdf.plugin.autotable.min.js"></script>
+    <script>
+        function calculateFields() {
+            const appCost = parseFloat(document.getElementById('appCost').value) || 0;
+            const gstRate = parseFloat(document.getElementById('gstRate').value) || 0;
+            const openingOffer = parseFloat(document.getElementById('openingOffer').value) || 0;
+            const extraOfferAmount = parseFloat(document.getElementById('extraOfferAmount').value) || 0;
+            const extraOfferType = document.querySelector('input[name="extraOfferType"]:checked')?.value || '';
+
+            const withoutGst = ((appCost * 100) / (100 + gstRate)).toFixed(2);
+            document.getElementById('withoutGst').value = withoutGst;
+
+            const gstAmount = ((withoutGst * gstRate) / 100).toFixed(2);
+            document.getElementById('gstAmount').value = gstAmount;
+
+            const total = (parseFloat(appCost) - parseFloat(openingOffer)).toFixed(2);
+            document.getElementById('total').value = total;
+            
+            if(total < 0){
+                document.getElementById('total').value = "Invalid"
+            }
+
+            let totalDiscount = 0;
+            let grandTotal = 0;
+            let calculatedExtraOffer = 0;
+
+            if (extraOfferType) {
+                document.getElementById('extraOfferFields').classList.remove('hidden');
+
+                if (extraOfferType === 'percentage') {
+                    if(extraOfferAmount > 100){
+                        window.alert("Extra Offer cannot be over 100% ")
+                    }
+                    else
+                    {
+                        calculatedExtraOffer = (total * (extraOfferAmount / 100));
+                        totalDiscount = (parseFloat(openingOffer) + parseFloat(calculatedExtraOffer));
+                        grandTotal = (total - calculatedExtraOffer);
+                    }
+                }
+            else 
+                if (extraOfferType === 'flat') {
+                    if(extraOfferAmount > appCost){
+                        window.alert("Extra Offerr cannot be provided over Application cost ")
+                    }
+                    else
+                    {
+                        calculatedExtraOffer = extraOfferAmount;
+                        totalDiscount = (parseFloat(openingOffer) + parseFloat(calculatedExtraOffer));
+                        grandTotal = (total - extraOfferAmount);
+                    }
+
+                    document.getElementById('calculatedExtraOffer').value = calculatedExtraOffer.toFixed(2);
+                    document.getElementById('totalDiscount').value = totalDiscount.toFixed(2);
+                    document.getElementById('grandTotal').value = grandTotal.toFixed(2);
+                } 
+                else 
+                {
+                document.getElementById('extraOfferFields').classList.add('hidden');
+                }
+            }
+        }
+
+        function toggleExtraOfferFields(show) {
+            if (show) {
+                document.getElementById('extraOfferFields').classList.remove('hidden');
+            } else {
+                document.getElementById('extraOfferFields').classList.add('hidden');
+                document.getElementById('extraOfferAmount').value = '';
+                document.getElementById('calculatedExtraOffer').value = '';
+                document.getElementById('totalDiscount').value = '';
+                document.getElementById('grandTotal').value = '';
+            }
+            calculateFields();
+        }
+
+        function showPrintOptions() {
+            document.getElementById('printOptions').classList.remove('hidden');
+        }
+
+        function validatePhone() {
+            const phone = document.getElementById('phone').value;
+            if(phone.length > 10){
+                window.alert("Enter a valid Phone Number.")
+            }
+        }
+
+        function extractPAN() {
+            const gstNo = document.getElementById('gstno').value;
+            if (gstNo.length < 15) {
+                document.getElementById('panno').value = '';
+            } else 
+            if(gstNo.length == 15){
+                document.getElementById('panno').value = gstNo.slice(2, 12);
+            }
+            else{
+                window.alert("Enter valid GSTIN number.")
+                document.getElementById('panno').value = '';
+            }
+        }
+
+        function printPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+        
+            doc.setFontSize(16);
+            doc.text('Suggi Cost Calculation', 10, 10);
+        
+            const name = document.getElementById('name').value || '-';
+            const phone = document.getElementById('phone').value || '-';
+            const location = document.getElementById('location').value || '-';
+            const gstno = document.getElementById('gstno').value || '-';
+            const panno = document.getElementById('panno').value || '-';
+            const appCost = document.getElementById('appCost').value || '-';
+            const gstRate = document.getElementById('gstRate').value || '-';
+            const gstAmount = document.getElementById('gstAmount').value || '-';
+            const withoutGst = document.getElementById('withoutGst').value || '-';
+            const openingOffer = document.getElementById('openingOffer').value || '-';
+            const total = document.getElementById('total').value || '-';
+            const extraOfferType = document.querySelector('input[name="extraOfferType"]:checked')?.value || '-';
+            const extraOfferAmount = document.getElementById('extraOfferAmount').value || '-';
+            const calculatedExtraOffer = document.getElementById('calculatedExtraOffer').value || '-';
+            const totalDiscount = document.getElementById('totalDiscount').value || '-';
+            const grandTotal = document.getElementById('grandTotal').value || '-';
+        
+            const tableData = [
+                ['Name', name],
+                ['Phone', phone],
+                ['Location', location],
+                ['GST No', gstno],
+                ['PAN No', panno],
+                ['Application Cost', appCost],
+                ['GST Rate (%)', gstRate],
+                ['GST Amount', gstAmount],
+                ['Cost Without GST', withoutGst],
+                ['Opening Offer', openingOffer],
+                ['Total Cost', total]
+            ];
+        
+            if (extraOfferType && extraOfferType !== '-') {
+                tableData.push(
+                    ['Extra Offer Type', extraOfferType],
+                    ['Extra Offer Amount', extraOfferAmount],
+                    ['Calculated Extra Offer', calculatedExtraOffer],
+                    ['Total Discount', totalDiscount],
+                    ['Final Grand Total', grandTotal]
+                );
+            }
+        
+            doc.autoTable({
+                head: [['Field', 'Value']],
+                body: tableData,
+                startY: 20,
+                theme: 'grid',
+                headStyles: {
+                    fillColor: [8, 132, 63],
+                    textColor: 255,
+                },
+                styles: {
+                    fontSize: 12,
+                },
+            });
+        
+            doc.save(name + ' ' + gstno + ' Suggi_Cost_Calculation.pdf');
+        }
+        
+
+        function printExcel() {
+            const workbook = XLSX.utils.book_new();
+            const worksheetData = [
+                ['Field', 'Value'],
+                ['Name', document.getElementById('name').value],
+                ['Phone', document.getElementById('phone').value],
+                ['Location', document.getElementById('location').value],
+                ['GST No', document.getElementById('gstno').value],
+                ['PAN No', document.getElementById('panno').value],
+                ['Application Cost', document.getElementById('appCost').value],
+                ['GST Rate (%)', document.getElementById('gstRate').value],
+                ['GST Amount', document.getElementById('gstAmount').value],
+                ['Cost Without GST', document.getElementById('withoutGst').value],
+                ['Opening Offer', document.getElementById('openingOffer').value],
+                ['Total Cost', document.getElementById('total').value]
+            ];
+            const name = document.getElementById('name').value;
+            const gstno = document.getElementById('gstno').value;
+
+            const extraOfferType = document.querySelector('input[name="extraOfferType"]:checked')?.value || '';
+            if (extraOfferType) {
+                worksheetData.push(['Extra Offer Type', extraOfferType]);
+                worksheetData.push(['Extra Offer Amount', document.getElementById('extraOfferAmount').value]);
+                worksheetData.push(['Calculated Extra Offer', document.getElementById('calculatedExtraOffer').value]);
+                worksheetData.push(['Total Discount', document.getElementById('totalDiscount').value]);
+                worksheetData.push(['Final Grand Total', document.getElementById('grandTotal').value]);
+            }
+
+            const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
+            XLSX.utils.book_append_sheet(workbook, worksheet, 'Suggi Cost Calculation');
+            XLSX.writeFile(workbook, `${name}_${gstno}_'Suggi_Cost_Calculation.xlsx`);
+        }
+    </script>
+</body>
+</html>

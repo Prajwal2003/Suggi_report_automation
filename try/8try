@@ -1,0 +1,42 @@
+import csv
+import os
+import itertools
+
+def read_csv_columns(file_path, columns_to_extract, new_headers, fixed_values):
+    data = []
+    fixed_cycle = itertools.cycle(fixed_values)
+    with open(file_path, mode='r') as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            new_row = {}
+            for old_header, new_header in zip(columns_to_extract, new_headers):
+                if old_header in row:
+                    new_row[new_header] = row[old_header]
+                else:
+                    print(f"Column '{old_header}' not found in the CSV file.")
+                    return None
+            new_row["FixedColumn"] = next(fixed_cycle)
+            data.append(new_row)
+    return data
+
+def write_csv(data, output_file):
+    with open(output_file, mode='w', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=data[0].keys())
+        writer.writeheader()
+        writer.writerows(data)
+
+csv_file = "TWC.csv" 
+columns_to_extract = ["\ufeffcustomer", "territory"]  
+new_headers = ["Customer", "Territory"]  
+output_file = "extracted_data.csv" 
+fixed_values = ['5819', '4367', '5852', '4303']
+
+file_path = os.path.join(csv_file)
+
+if os.path.exists(file_path):
+    extracted_data = read_csv_columns(file_path, columns_to_extract, new_headers, fixed_values)
+    if extracted_data:
+        write_csv(extracted_data, output_file)
+        print(f"Data extracted and written to {output_file} successfully.")
+else:
+    print(f"File not found: {file_path}")
